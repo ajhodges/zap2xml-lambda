@@ -43,4 +43,4 @@ def lambda_handler(event, context):
     stdout_value, stderr_value = proc.communicate()
     print('Output:'  + stdout_value + stderr_value);
 	
-    client.upload_file('/tmp/%s' % FILE_NAME, BUCKET_NAME, FILE_NAME)
+    client.upload_file('/tmp/%s' % FILE_NAME, BUCKET_NAME, FILE_NAME, ExtraArgs={'ACL': 'public-read'})
